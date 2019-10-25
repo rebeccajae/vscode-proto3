@@ -1,0 +1,33 @@
+name: Build VSIX
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install npx
+      uses: mikeal/npx@1.0.0
+    - name: Install NPM and build VSIX
+      run: |
+        npm ci
+        mkdir pkg
+        npx vsce package --out pkg/vscode-proto3-head.vsix
+      env:
+        CI: true
+    - name: Upload VSIX
+      uses: actions/upload-artifact@master
+      with:
+        name: build-vsix
+        path: pkg/vscode-proto3-head.vsix

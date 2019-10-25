@@ -85,8 +85,8 @@
         }
     },
     "scripts": {
-        "vscode:prepublish": "tsc -p ./",
-        "compile": "tsc -watch -p ./",
+        "vscode:prepublish": "webpack --mode production",
+        "compile": "webpack --mode development --watch",
         "postinstall": "node ./node_modules/vscode/bin/install"
     },
     "devDependencies": {
