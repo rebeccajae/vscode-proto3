@@ -85,7 +85,7 @@
         }
     },
     "scripts": {
-        "vscode:prepublish": "webpack --mode production",
+        "vscode:prepublish": "webpack --mode development",
         "compile": "webpack --mode development --watch",
         "postinstall": "node ./node_modules/vscode/bin/install"
     },
