@@ -22,7 +22,7 @@
         "onCommand:proto3.compile.one",
         "onCommand:proto3.compile.all"
     ],
-    "main": "./dist/proto3",
+    "main": "./dist/proto3.js",
     "contributes": {
         "commands": [
             {

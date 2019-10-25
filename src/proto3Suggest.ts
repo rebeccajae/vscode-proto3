@@ -311,16 +311,16 @@ export class Proto3CompletionItemProvider implements vscode.CompletionItemProvid
                 let lineVals = re.exec(ltxHere.text);
                 
                 if (lineVals !== null){
-                    var allNumbers = lineVals.slice(1).filter(function(el) {
+                    let usedNumbers = lineVals[0].split(",").filter(function(el) {
                         return el != null;
                     }).map(function(el) {
                         return parseInt(el.replace(/\D/g,''));
                     });
-                    result = result.concat(allNumbers);
+                    result = result.concat(usedNumbers);
                 }
             }
 
-            result = result.sort();
+            result = result.sort(function(a, b){return a-b});
             for(var i=1;i<=result[result.length-1]+1;i++) {
                 if(result.indexOf(i) == -1){
                     suggestions.push(createCompletionPBKey(i.toString()));
