@@ -265,6 +265,11 @@ function createCompletionOption(option: string, doc: string): vscode.CompletionI
     return item
 }
 
+function createCompletionPBKey(numeric: string): vscode.CompletionItem {
+    let item = new vscode.CompletionItem(numeric);
+    item.kind = vscode.CompletionItemKind.Enum;
+    return item;
+}
 
 export class Proto3CompletionItemProvider implements vscode.CompletionItemProvider {
 
@@ -290,9 +295,39 @@ export class Proto3CompletionItemProvider implements vscode.CompletionItemProvid
 
             let textBeforeCursor = lineText.substring(0, position.character - 1)
             let scope = guessScope(document, position.line);
-            //console.log(scope.syntax);
-            //console.log(textBeforeCursor);
+            let punchMapping = new Map();
+            scope.children.forEach((child) => {
+                punchMapping.set(child.lineFrom, child.lineTo);
+            });
 
+            const re = /([0-9]+)(,\W*[0-9]+)*;/;
+            let result = [];
+            for (let i = scope.lineFrom; i < scope.lineTo; i++) {
+                if (punchMapping.has(i)){
+                    i = punchMapping.get(i);
+                    continue;
+                }
+                let ltxHere = document.lineAt(i);
+                let lineVals = re.exec(ltxHere.text);
+                
+                if (lineVals !== null){
+                    var allNumbers = lineVals.slice(1).filter(function(el) {
+                        return el != null;
+                    }).map(function(el) {
+                        return parseInt(el.replace(/\D/g,''));
+                    });
+                    result = result.concat(allNumbers);
+                }
+            }
+
+            result = result.sort();
+            for(var i=1;i<=result[result.length-1]+1;i++) {
+                if(result.indexOf(i) == -1){
+                    suggestions.push(createCompletionPBKey(i.toString()));
+                    break;
+                }
+            }
+            
             switch (scope.kind) {
                 case Proto3ScopeKind.Proto: {
                     if (textBeforeCursor.match(/^\s*\w*$/)) {
@@ -340,7 +375,7 @@ export class Proto3CompletionItemProvider implements vscode.CompletionItemProvid
                     break;
                 }
             }
-
+            console.log(suggestions);
             return resolve(suggestions);
         });
     }

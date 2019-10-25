@@ -2,13 +2,13 @@
     "name": "vscode-proto3",
     "displayName": "vscode-proto3",
     "description": "Protobuf 3 support for Visual Studio Code",
-    "version": "0.3.0",
-    "publisher": "zxh404",
+    "version": "0.3.1",
+    "publisher": "rebeccajae",
     "icon": "images/icon.png",
-    "homepage": "https://github.com/zxh0/vscode-proto3/blob/master/README.md",
+    "homepage": "https://github.com/rebeccajae/vscode-proto3/blob/master/README.md",
     "repository": {
         "type": "git",
-        "url": "https://github.com/zxh0/vscode-proto3"
+        "url": "https://github.com/rebeccajae/vscode-proto3"
     },
     "engines": {
         "vscode": "^1.0.0"
