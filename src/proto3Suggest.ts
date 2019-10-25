@@ -375,7 +375,6 @@ export class Proto3CompletionItemProvider implements vscode.CompletionItemProvid
                     break;
                 }
             }
-            console.log(suggestions);
             return resolve(suggestions);
         });
     }

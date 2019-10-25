@@ -22,7 +22,7 @@
         "onCommand:proto3.compile.one",
         "onCommand:proto3.compile.all"
     ],
-    "main": "./out/src/proto3Main",
+    "main": "./dist/proto3",
     "contributes": {
         "commands": [
             {
@@ -93,8 +93,11 @@
         "@types/mocha": "^2.2.32",
         "@types/node": "^6.0.40",
         "mocha": "^6.1.4",
+        "ts-loader": "^6.2.1",
         "typescript": "^2.0.3",
-        "vscode": "^1.1.34"
+        "vscode": "^1.1.34",
+        "webpack": "^4.41.2",
+        "webpack-cli": "^3.3.9"
     },
     "dependencies": {
         "fast-glob": "^2.2.7",
