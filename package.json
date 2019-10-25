@@ -11,7 +11,7 @@
         "url": "https://github.com/rebeccajae/vscode-proto3"
     },
     "engines": {
-        "vscode": "^1.0.0"
+        "vscode": "^1.1.34"
     },
     "categories": [
         "Programming Languages",
@@ -85,8 +85,10 @@
         }
     },
     "scripts": {
-        "vscode:prepublish": "webpack --mode development",
-        "compile": "webpack --mode development --watch",
+        "prebuild": "rm -rf dist out",
+        "build": "tsc -p ./; webpack --mode development",
+        "postbuild": "rm -rf out",
+        "vscode:prepublish": "tsc -p ./; webpack --mode development",
         "postinstall": "node ./node_modules/vscode/bin/install"
     },
     "devDependencies": {
@@ -100,7 +102,6 @@
         "webpack-cli": "^3.3.9"
     },
     "dependencies": {
-        "fast-glob": "^2.2.7",
-        "npm": "^6.9.0"
+        "fast-glob": "^2.2.7"
     }
 }

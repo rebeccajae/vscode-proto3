@@ -1,10 +1,10 @@
 'use strict';
 
-import vscode = require('vscode');
-import fs = require('fs');
-import path = require('path');
-import cp = require('child_process');
-import os = require('os');
+import * as vscode from "vscode";
+import * as fs from "fs";
+import * as path from "path";
+import * as cp from "child_process";
+import * as os from "os";
 
 export class Proto3Compiler {
  

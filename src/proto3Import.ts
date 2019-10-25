@@ -1,8 +1,7 @@
 'use strict';
 
-import path = require('path');
-import vscode = require('vscode');
-
+import * as vscode from "vscode";
+import * as path from "path";
 export module Proto3Import {
 
     export const importStatementRegex = new RegExp(/^\s*import\s+('|")(.+\.proto)('|")\s*;\s*$/gim);

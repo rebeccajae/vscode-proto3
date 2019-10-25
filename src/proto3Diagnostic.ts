@@ -1,7 +1,7 @@
 'use strict';
 
-import vscode = require('vscode');
-import path = require('path');
+import * as vscode from "vscode";
+import * as path from "path";
 import { Proto3Compiler } from './proto3Compiler';
 
 export class Proto3LanguageDiagnosticProvider {

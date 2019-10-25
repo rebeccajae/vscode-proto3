@@ -1,6 +1,7 @@
 'use strict';
 
-import vscode = require('vscode');
+import * as vscode from "vscode";
+
 
 
 const MSG_BEGIN = /\s*message\s+(\w*)\s*\{.*/;

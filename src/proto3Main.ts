@@ -1,7 +1,7 @@
 'use strict';
 
-import vscode = require('vscode');
-import cp = require('child_process');
+import * as vscode from "vscode";
+import * as cp from "child_process";
 import { Proto3CompletionItemProvider } from './proto3Suggest';
 import { Proto3LanguageDiagnosticProvider } from './proto3Diagnostic';
 import { Proto3Compiler } from './proto3Compiler';

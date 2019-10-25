@@ -1,6 +1,7 @@
 'use strict';
 
-import vscode = require('vscode');
+import * as vscode from "vscode";
+
 
 export const PROTO3_MODE: vscode.DocumentFilter = {
     language: 'proto3',

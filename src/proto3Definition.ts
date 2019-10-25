@@ -1,9 +1,9 @@
 'use strict';
 
-import fs = require('fs');
-import path = require('path');
-import vscode = require('vscode');
-import fg = require('fast-glob');
+import * as vscode from "vscode";
+import * as fs from "fs";
+import * as path from "path";
+import * as fg from "fast-glob";
 import { guessScope, Proto3ScopeKind } from './proto3ScopeGuesser';
 import { Proto3Import } from './proto3Import';
 import { Proto3Primitive } from './proto3Primitive';

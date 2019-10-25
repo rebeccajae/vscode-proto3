@@ -1,6 +1,6 @@
 'use strict';
 
-import vscode = require('vscode');
+import * as vscode from "vscode";
 import { guessScope, Proto3ScopeKind } from './proto3ScopeGuesser';
 
 let kwSyntax = createCompletionKeyword('syntax');
@@ -303,8 +303,11 @@ export class Proto3CompletionItemProvider implements vscode.CompletionItemProvid
             const re = /([0-9]+)(,\W*[0-9]+)*;/;
             let result = [];
             for (let i = scope.lineFrom; i < scope.lineTo; i++) {
+                console.log(i)
                 if (punchMapping.has(i)){
+                    console.log("from", i);
                     i = punchMapping.get(i);
+                    console.log("to", i);
                     continue;
                 }
                 let ltxHere = document.lineAt(i);
