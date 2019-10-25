@@ -29,5 +29,5 @@ jobs:
     - name: Upload VSIX
       uses: actions/upload-artifact@master
       with:
-        name: build-vsix
+        name: build-vsix-${{ matrix.node-version }}-${{ github.sha	}}
         path: pkg/vscode-proto3-head.vsix
