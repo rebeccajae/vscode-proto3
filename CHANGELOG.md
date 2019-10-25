@@ -1,5 +1,8 @@
 ## Release Notes
 
+### 0.3.1
+- Add basic guessing for next-in-line identifier indices.
+
 ### 0.3.0
 - Support "Go to Definition" (issue#34).
 - Fixed string highlighting issues (issue#42).

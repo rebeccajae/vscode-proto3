@@ -2,6 +2,10 @@
 
 Protobuf 3 support for Visual Studio Code
 
+https://github.com/rebeccajae/vscode-proto3
+
+Based on 
+
 https://github.com/zxh0/vscode-proto3
 
 ## Features
@@ -29,7 +33,7 @@ The validation is triggered when you save the proto file. You need protoc
 compiler to enable syntax validation. You also need a settings.json file 
 to tell the extension the full path of protoc if it is not in `path`. 
 Bellow is the settings.json file comes from 
-[example/.vscode](https://github.com/zxh0/vscode-proto3/tree/master/example/.vscode) folder:
+[example/.vscode](https://github.com/rebeccajae/vscode-proto3/tree/master/example/.vscode) folder:
 ```json
 {
     "protoc": {
